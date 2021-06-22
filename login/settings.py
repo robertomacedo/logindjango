@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     # local apps
     'pages.apps.PagesConfig',
+    'cadcrianca.apps.CadcriancaConfig',
 ]
 
 MIDDLEWARE = [
