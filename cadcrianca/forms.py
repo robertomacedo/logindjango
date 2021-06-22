@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import CadastroCrianca
+from django import forms
 
 
 class CriancaForm(ModelForm):

@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-<form>
+<h4>Formulário de cadastro</h4>
+
+<form action="" method="POST">
     {% csrf_token %}
-    {{form}}
+    {{form.as_p}}
 </form>
 
 {% endblock %}
