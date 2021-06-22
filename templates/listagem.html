@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Loja Python{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <section class="py-5 text-center container">
+        <legend><strong><h1>CADASTRO DE ALUNOS</h1></strong></legend>
+    </section>
+    <div class="mb-3">
+        <label for="FormControlInputname" class="form-label"></label>
+        <input type="name" class="form-control" id="FormControlInputname" placeholder="Nome completo">
+    </div>
+    <div class="mb-3">
+        <label for="FormControlInputname" class="form-label"></label>
+        <input type="data" class="form-control" id="FormControlInputdata" placeholder="Data de nascimento">
+    </div>
+    <div class="mb-3">
+        <label for="FormControlInputname" class="form-label"></label>
+        <input type="fone" class="form-control" id="FormControlInputfone" placeholder="Telefone para contato">
+    </div>
+    <div class="mb-3">
+        <label for="FormControlInputname" class="form-label"></label>
+        <input type="mae" class="form-control" id="FormControlInputmae" placeholder="Nome da mamãe">
+    </div>
+    <div class="mb-3">
+        <label for="FormControlInputname" class="form-label"></label>
+        <input type="pai" class="form-control" id="FormControlInputpai" placeholder="Nome do papai">
+    </div>
+
+    <div class="mb-3">
+        <label for="FormControlTextarea1" class="form-label">Observações:</label>
+        <textarea class="form-control" id="FormControlTextarea1" rows="6"></textarea>
+    </div>
+
+      <button class="btn btn-success" type="submit">Cadastrar</button>
+
+</form>
+
+{% endblock %}

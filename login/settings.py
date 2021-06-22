@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # 3rd party
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'crispy_forms',
 
     # local apps
@@ -142,4 +142,4 @@ LOGIN_REDIRECT_URL = "/"
 ACCOUNT_SESSION_REMEMBER = True
 
 # django crispy-forms
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
