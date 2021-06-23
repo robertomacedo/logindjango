@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
+{% block title %}Cadastro de aluno{% endblock %}
 
 {% block content %}
-<h4>Formulário de cadastro</h4>
+    <h4>Formulário de cadastro</h4>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-</form>
-
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
 {% endblock %}

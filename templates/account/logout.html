@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
-{% block titel%}Sair{% endblock %}
+{% block titel%}Logout{% endblock %}
 
 {% block content %}
-    <h2>Sair</h2>
-    <form method="post" action="{% url 'account_logout' %}">
-    <p>Deseja realmente sair do sistema?</p>
-        {% csrf_token %}
-        <button class="btn btn-success" type="submit">Sair</button>
-    </form>
+    <div class="contairner">
+        <h2>Sair</h2>
+    </div>
+    <div class="container mt-4">
+        <form method="post" action="{% url 'account_logout' %}">
+        <p>Deseja realmente sair do sistema?</p>
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Sair</button>
+            <a class="nav-link" href="{% url 'pages:home' %}">Cancelar</a>
+        </form>
+    </div>
 {% endblock %}

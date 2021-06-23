@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Loja Python{% endblock %}
+{% block title %}Sistema de cadastro{% endblock %}
 
 {% block content %}
 
-<nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
-  <div class="container">
-      <a class="navbar-brand" href="{% url 'pages:listagem' %}">Listagem</a>
-      <a class="navbar-brand" href="{% url 'pages:lista' %}">Lista</a>
-
-      <ul class="navbar-nav">
-      </ul>
-  </div>
-</nav>
+<!--<nav class="navbar navbar-expand navbar-dark bg-dark mb-3">-->
+<!--  <div class="container">-->
+<!--    <ul class="navbar-nav">-->
+<!--      <a class="navbar-brand" href="{% url 'pages:listagem' %}">Listagem</a>-->
+<!--      <a class="navbar-brand" href="{% url 'pages:lista' %}">Lista</a>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
 
 <main>
 
@@ -20,7 +19,7 @@
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light"><strong><h1>CORDEIRINHOS</h1></strong></h1>
-          <p class="lead text-muted">Este espaço é para uso exclusivo dos responsáveis pelo grupo de crianças, objetivo é organizar as informações das crianças e contato com os responsáveis, faça bom uso.</p>
+          <p class="lead text-muted">Este espaço é para uso exclusivo dos responsáveis pelo grupo de crianças, objetivo é <strong>organizar</strong> as informações das crianças e contato com os responsáveis, faça bom uso.</p>
           <p>
             <a href="https://www.ad508recanto.com/" class="btn btn-primary my-2">Site Adecs508</a>
             <a href="#" class="btn btn-secondary my-2">WhattsApp Web</a>

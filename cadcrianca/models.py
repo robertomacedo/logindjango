@@ -27,8 +27,8 @@ class CadastroCrianca(models.Model):
     )
     class Meta:
         ordering = ('name',)
-        verbose_name = 'child'
-        verbose_name_plural = 'childs'
+        verbose_name = 'criança'
+        verbose_name_plural = 'crianças'
 
     def __str__(self):
         return self.name
