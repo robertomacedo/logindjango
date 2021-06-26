@@ -10,32 +10,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 def cadastroview(request):
     data = CadastroCrianca.objects.all()
-    return render(request, 'listagem.html', {'data':data})
+    return render(request, 'listagem.html', {'data': data})
 
 
 class CadastroView(TemplateView):
     template_name = "form.html"
 
-    # def form_valid(self, form):
-    #     grupo = get_object_or_404(Grupo, name='Aluno')
-    #
-    #     url = super().form_valid(form)
-    #     self.object.groups.add(grupo)
-    #     self.object.save()
-    #
-    #     return url
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['titulo'] = 'Cadastro de novo usuário'
-    #     context['botao'] = 'Cadastrar'
-    #
-    #     return context
-
-
 class ListagemView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('account_login')
     template_name = "listagem.html"
+
 
 class CriancaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('account_login')
@@ -72,6 +56,7 @@ class AlunoUpdate(UpdateView):
         context['titulo'] = "Atualizar dados do aluno"
         context['botao'] = "Salvar"
         return context
+
 
 class AlunoDelete(DeleteView):
     model = CadastroCrianca
