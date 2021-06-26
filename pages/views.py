@@ -10,3 +10,4 @@ class ListagemView(TemplateView):
 class ListaView(TemplateView):
     template_name = "lista.html"
 
+

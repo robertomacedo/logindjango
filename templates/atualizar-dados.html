@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<h1>Meus dados pessoais</h1>
+
+<p class="lead">Atualização de dados no banco</p>
+
+<hr>
+<div class="container">
+  <div class="col col-md-4">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{form|crispy}}
+      <a href="{% url 'cadcrianca:listar-cadastros' %}"><button class="btn btn-success">{{botao}}</button></a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

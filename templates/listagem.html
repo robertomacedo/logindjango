@@ -11,7 +11,7 @@
 
 
 <div class="container mt-5 text text-center">
-    <h1>RELAÇÃO DE ALUNOS EBD AD-508</h1>
+    <h1>ESCOLA BÍBLICA DOMINICAL AD-508</h1>
 </div>
     <div class="container mt-4">
         <div class="col col-mt-4">
@@ -24,34 +24,6 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                <table id=myTable class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Mãe</th>
-                            <th scope="col">Pai</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for data in context %}
-                        <tr>
-                            <td scope="col"><p>{{data}}</p></td>
-                            <td>{{data.address}}</td>
-                            <td>{{data.phone}}</td>
-                            <td>{{data.mae}}</td>
-                            <td>{{data.pai}}</td>
-                                <td scope="col"><a href="{% url 'update' child.id %}"><button class="fa fa-user-edit" type="text" title="Atualizar"></button></a></td>
-                                <td scope="col"><a href="{% url 'delete' child.id %}"><button class="fa fa-trash-alt" type="text" title="Excluir"></button></a></td>
-                        </tr>
-                     {% endfor %}
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>

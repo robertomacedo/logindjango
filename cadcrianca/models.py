@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
 
 class CadastroCrianca(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome')
@@ -32,3 +32,11 @@ class CadastroCrianca(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Perfil(models.Model):
+    name_completo = models.CharField(max_length=50, null=True)
+    cpf = models.CharField(max_length=14, null=True)
+    telefone = models.CharField(max_length=16, null=True)
+    email = models.EmailField(max_length=100, null=True)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)

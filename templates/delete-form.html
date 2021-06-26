@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3>{{titulo}}</h3>
+
+<p class="lead">Deseja realmente deletar <strong>{{object}}</strong>!</p>
+
+<hr>
+<div class="container">
+  <div class="col col-md-2">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="btn btn-danger">{{botao}}</button>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
