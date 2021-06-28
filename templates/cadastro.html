@@ -4,9 +4,15 @@
 
 {% block content %}
     <h4>Formulário de cadastro</h4>
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-    </form>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+            </form>
+        </div>
+        <div class="col-md-8">
+            <p>Teste de coluna</p>
+        </div>
+    </div>
 {% endblock %}

@@ -8,6 +8,6 @@ class ListagemView(TemplateView):
     template_name = "listagem.html"
 
 class ListaView(TemplateView):
-    template_name = "lista.html"
+    template_name = "lista-datails.html"
 
 

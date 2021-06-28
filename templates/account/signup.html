@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
 
-{% block title %}Cadastro{% endblock %}
+{% block title %}Cadastro de Usuário{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Cadastro</h2>
+<div class="container mt-5">
+    <h3>Cadastro de novo usuário</h3>
 </div>
     <div class="container">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <form method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{form.as_p}}
+                {{form|crispy}}
                 <button class="btn btn-success" type="submit">Cadastrar</button>
             </form>
         </div>
