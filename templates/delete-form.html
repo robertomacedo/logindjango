@@ -9,15 +9,22 @@
 
 <hr>
 <div class="container">
-  <div class="col col-md-2">
-    <form action="" method="POST">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button class="btn btn-danger">{{botao}}</button>
-    </form>
+  <div class="row">
+    <div class="col col-md-2">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="col col-md-4">
+          <button class="btn btn-danger">{{botao}}</button>
+        </div>
+        <div class="mt-3">
+          <div class="col col-md-4">
+              <a href="{% url 'cadcrianca:listar-cadastros' %}"><button class="btn btn-primary">Cancelar</button></a>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-
-
 {% endblock %}
 

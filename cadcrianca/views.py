@@ -16,6 +16,14 @@ def cadastroview(request):
 class CadastroView(TemplateView):
     template_name = "form.html"
 
+
+class ListaDatails(TemplateView):
+    template_name = "lista-datails.html"
+
+
+# class AlunoDatails(ListView):
+#     template_name = 'aluno-datails'
+
 class ListagemView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('account_login')
     template_name = "listagem.html"
@@ -57,7 +65,6 @@ class AlunoUpdate(UpdateView):
         context['botao'] = "Salvar"
         return context
 
-
 class AlunoDelete(DeleteView):
     model = CadastroCrianca
     template_name = 'delete-form.html'
@@ -84,7 +91,7 @@ class PerfilUpdate(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        #context['titulo'] = 'Meus dados pessoais'
+        context['titulo'] = 'Meus dados pessoais'
         context['botao'] = 'Atualizar'
 
         return context
