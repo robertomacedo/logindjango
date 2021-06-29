@@ -5,3 +5,5 @@ O projeto tem a função de manter um cadastro simples, um crud no primeiro mome
 Criar e configurar app no heroku.
 
 Subir aplicação no heroku
+
+Corrigido erro no arquivo heroku.py SECRETY_KEY.

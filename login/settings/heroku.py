@@ -7,7 +7,7 @@ env = environ.Env()
 
 DEBUG = env.bool('DEBUG', False)
 
-SECRET_KEY = env('SECRETY_KEY')
+SECRETY_KEY = env('SECRETY_KEY')
 
 ALLOWED_HOSTS = list('ALLOWED_HOSTS')
 
