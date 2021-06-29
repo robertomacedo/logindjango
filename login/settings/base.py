@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # 3rd party
-    #'allauth',
+    'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',

@@ -15,7 +15,7 @@
     <form action="" method="POST">
       {% csrf_token %}
       {{form|crispy}}
-      <a href="{% url 'cadcrianca:listar-cadastros' %}"><button class="btn btn-success">{{botao}}</button></a>
+      <a href="{ url 'cadcrianca:listar-cadastros' %}"><button class="btn btn-success">{{botao}}</button></a>
     </form>
   </div>
 </div>

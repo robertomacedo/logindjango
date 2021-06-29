@@ -79,9 +79,9 @@ class AlunoDelete(DeleteView):
 
 
 class PerfilUpdate(UpdateView):
-    template_name = 'form.html'
     models = Perfil
     fields = ['name_completo', 'cpf', 'telefone', 'email']
+    template_name = 'form.html'
     success_url = reverse_lazy('cadcrianca:listar-cadastros')
 
     def get_object(self, queryset=None):
