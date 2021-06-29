@@ -6,4 +6,4 @@ Criar e configurar app no heroku.
 
 Subir aplicação no heroku
 
-Corrigido erro no arquivo heroku.py SECRETY_KEY.
+Corrigido erro no arquivo heroku.py SECRET_KEY.
