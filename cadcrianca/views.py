@@ -24,6 +24,7 @@ class ListaDatails(TemplateView):
 # class AlunoDatails(ListView):
 #     template_name = 'aluno-datails'
 
+
 class ListagemView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('account_login')
     template_name = "listagem.html"
@@ -34,7 +35,8 @@ class CriancaList(LoginRequiredMixin, ListView):
     model = CadastroCrianca
     template_name = 'listar-cadastros.html'
 
-#---------------------------Create forms de cdastro de alunos ---------------------------
+#  Create forms de cdastro de alunos
+
 
 class AlunoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('account_login')
@@ -51,7 +53,6 @@ class AlunoCreate(LoginRequiredMixin, CreateView):
         return context
 
 
-#-------------------------------------- Update view --------------------------------------
 class AlunoUpdate(UpdateView):
     model = CadastroCrianca
     fields = ['name', 'phone', 'address', 'data_nascimento', 'mae', 'pai']
@@ -64,6 +65,7 @@ class AlunoUpdate(UpdateView):
         context['titulo'] = "Atualizar dados do aluno"
         context['botao'] = "Salvar"
         return context
+
 
 class AlunoDelete(DeleteView):
     model = CadastroCrianca
@@ -95,5 +97,3 @@ class PerfilUpdate(UpdateView):
         context['botao'] = 'Atualizar'
 
         return context
-
-
