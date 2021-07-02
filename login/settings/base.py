@@ -26,7 +26,7 @@ SECRET_KEY = 'dcf65-bo!f@t(97fls@g9nkx*3u^7kun%5ndez(1j*7+%^j9v4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    # 3rd party
+    # Terceiro
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
