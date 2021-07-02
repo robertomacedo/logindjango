@@ -1,7 +1,6 @@
 import environ
-
-
 from login.settings.base import *
+
 
 env = environ.Env()
 
