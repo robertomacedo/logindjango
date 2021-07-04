@@ -25,6 +25,7 @@ class CadastroCrianca(models.Model):
         null=True,
         blank=True
     )
+    
     class Meta:
         ordering = ('name',)
         verbose_name = 'criança'

@@ -12,6 +12,6 @@ urlpatterns = [
     path("update-form/<int:pk>", AlunoUpdate.as_view(), name="update-aluno"),
     path("delete-form/<int:pk>", AlunoDelete.as_view(), name="delete-aluno"),
     path("atualizar-dados/", PerfilUpdate.as_view(), name="atualizar-dados"),
-    # path("aluno-datails/<int:pk>", AlunoDatails.as_view(), name="aluno-datails"),
+    path("chamada/>", views.chamadaView, name="chamada"),
     path("lista-datails/", ListaDatails.as_view(), name="lista-datails"),
 ]

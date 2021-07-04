@@ -10,8 +10,21 @@
     <p ><h2 class="text-center">Page in construction!!!</h2></p>
     <p class="lead">Será apresentado dados do aluno pesquisado de forma individual</p>
     <div class="row">
+    <table class="table table-special">
+        <tr>
+            <th>Nome</th>
+            <th>Presença</th>
+        </tr>
+    </table>
+    <tbody>
+        {% for ch in chs %}
+        <tr>
+            <td>{{ch.name}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
 
-    </div>
 </div>
 
 {% endblock %}

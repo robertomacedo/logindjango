@@ -9,23 +9,28 @@
    <table class="table table-striped">
        <tr>
            <th>Nome</th>
-           <th>Phone</th>
-           <th>Endereço</th>
+           <th>Contato</th>
+           <!-- <th>Endereço</th> -->
            <th>Nascimento</th>
-           <th>Pai</th>
+           <!-- <th>Pai</th> -->
            <th>Mãe</th>
+           <th>Presença</th>
            <th>Opções</th>
        </tr>
        {% for campo in object_list %}
         <tr>
+            <!-- <td>{{forloop.counter}}</td> -->
             <td><a href="{% url 'cadcrianca:lista-datails' %}">{{campo.name}}</a></td>
             <td>{{campo.phone}}</td>
-            <td>{{campo.address}}</td>
+            <!-- <td>{{campo.address}}</td> -->
             <td>{{campo.data_nascimento}}</td>
+            <!-- <td>{{campo.pai}}</td> -->
             <td>{{campo.mae}}</td>
-            <td>{{campo.pai}}</td>
-                <td><a href="{% url 'cadcrianca:update-aluno' campo.pk %}" class="btn btn-warning btn-sm" type="text" title="Atualizar">A</a></td>
-                <td><a href="{% url 'cadcrianca:delete-aluno' campo.pk %}" class="btn btn-danger btn-sm" type="text" title="Excluir">E</a></td>
+            <td><input type="checkbox"></td>
+                <td>
+                <a href="{% url 'cadcrianca:update-aluno' campo.pk %}" class="btn btn-warning btn-sm" type="text" title="Atualizar">A</a>
+                <a href="{% url 'cadcrianca:delete-aluno' campo.pk %}" class="btn btn-danger btn-sm" type="text" title="Excluir">E</a>
+            </td>
         </tr>
        {% empty %}
        <tr>
@@ -34,6 +39,7 @@
        {% endfor %}
 
    </table>
+   <button class="btn btn-primary">Registrar Presença</button>
 </div>
 
 {% endblock %}

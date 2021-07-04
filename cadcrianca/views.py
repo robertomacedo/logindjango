@@ -13,6 +13,13 @@ def cadastroview(request):
     return render(request, 'listagem.html', {'data': data})
 
 
+def chamadaView(request):
+    context = {}
+    chs = CadastroCrianca.objects.all()
+    context['ch': chs] = chs
+    return render(request, 'chamada.html', context)
+
+
 class CadastroView(TemplateView):
     template_name = "form.html"
 
