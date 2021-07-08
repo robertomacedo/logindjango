@@ -1,8 +1,10 @@
+from cadcrianca.forms import PerfilForm
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
 from .models import CadastroCrianca, Perfil
 from django.views.generic.list import ListView
+
 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,10 +21,6 @@ class CadastroView(TemplateView):
 
 class ListaDatails(TemplateView):
     template_name = "lista-datails.html"
-
-
-# class AlunoDatails(ListView):
-#     template_name = 'aluno-datails'
 
 
 class ListagemView(LoginRequiredMixin, TemplateView):
@@ -80,14 +78,14 @@ class AlunoDelete(DeleteView):
         return context
 
 
-class PerfilUpdate(UpdateView):
-    template_name = 'form.html'
+class PerfilUpdate(TemplateView):
+    template_name = 'atualizar-dados.html'
     models = Perfil
-    fields = ['name_completo', 'cpf', 'telefone', 'email']
+    fields = ['name_completo', 'cpf', 'telefone', 'email', 'usuario']
     success_url = reverse_lazy('cadcrianca:listar-cadastros')
 
     def get_object(self, queryset=None):
-        self.object = get_object_or_404(Perfil, usuario=self.request.user)
+        self.object = get_object_or_404(Perfil)
         return self.object
 
     def get_context_data(self, **kwargs):
@@ -97,3 +95,12 @@ class PerfilUpdate(UpdateView):
         context['botao'] = 'Atualizar'
 
         return context
+
+
+def perfilsettings(request):
+    user = request.user
+    form = PerfilForm(istance=user)
+    context = {
+        'form': form
+    }
+    return render(request, 'atualizar-dados.html', context)

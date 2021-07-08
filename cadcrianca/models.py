@@ -35,7 +35,7 @@ class CadastroCrianca(models.Model):
         verbose_name = 'criança'
         verbose_name_plural = 'crianças'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -44,4 +44,9 @@ class Perfil(models.Model):
     cpf = models.CharField(max_length=14, null=True)
     telefone = models.CharField(max_length=16, null=True)
     email = models.EmailField(max_length=100, null=True)
+    img = models.ImageField(null=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.name_completo
