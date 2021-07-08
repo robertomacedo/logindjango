@@ -148,6 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 MEDI_URL = 'user/'
 MEDIA_ROOT = BASE_DIR / 'static/images'
+
 #  django-allauth
 
 AUTHENTICATION_BACKENDS = [
