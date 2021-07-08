@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+def upload_image_crianca(instance, filename):
+    return f"{instance.pk} {filename}"
+
+
 class CadastroCrianca(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome')
     phone = models.CharField(max_length=50, null=True, blank=True, verbose_name='Contato')
