@@ -104,3 +104,25 @@ def perfilsettings(request):
         'form': form
     }
     return render(request, 'atualizar-dados.html', context)
+
+
+def upload(request):
+    if request.method == 'POST':
+        filetitle = request.POST['filetitle']
+        uploadfile = request.FILES['uploadfile']
+
+        document = models.Perfil(
+            title = filetitle,
+            uploadfile = uploadfile
+        )
+        document.save()
+
+        document = models.Perfil.objects.all()
+
+        return render(request, 'lista-datails.html', context={'files': document})
+
+# lista de chamada
+
+class ChamdaList(LoginRequiredMixin, ListView):
+    model = CadastroCrianca
+    template_name = 'chamada.html'

@@ -13,42 +13,26 @@
 <div class="row">
   <div class="col-md-3">
     <div class="card card-body">
-      <a class="btn btn-warning" href="{% url 'pages:listagem' %}">Foto</a></div>
-      <h3 class="align-center">Atualizar dados</h3>
-      <img class="img" src="{{request.user.perfil.img.url}}" alt="image" width="150" height="150">
+      <a class="btn btn-warning" href="{% url 'pages:listagem' %}">Home</a></div>
+      <h3 class="">Atualizar dados</h3>
+      <img class="img" src="{{request.user.perfil.img.url}}" alt="image" width="250" height="300">
+      <p>Seja bem-vindo(a) ao sitema: <strong>{{request.user}}</strong></p>
+    </div>
   </div>
 </div>
-<div class="col-md-9">
-  <div class="card card-body">
 
-    <!-- <form method="POST" action="" enctype="multipart/form-data">
+<div class="col-md-4">
+  <div class="card card-body">
+    <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
+        <input >
         {{form.as_p}}
         <input class="btn btn-primary" type="submit" name="Update Information">
-    </form> -->
+    </form>
+    {% if object.image %}
+    <img src="{{object.image.url}}">
 
+    {% endif %}
   </div>
-</div>
-
-
-<!-- <div class="form">
-    <form action="." method="POST">
-      {% csrf_token %}
-        <input type="text" name="name" placeholder="Nome completo">
-        <input type="text" placeholder="Cpf">
-        <input type="text" placeholder="Telefone">
-        <input type="text" placeholder="Email">
-        <input type="text" placeholder="Usuário">
-      <div class="container mt-3">
-        <button class="btn btn-success" type="submit">{{botao}}</button>
-      </div>
-    </form> -->
-    <!-- <form action="" method="POST">
-      {% csrf_token %}
-      {{form.as_p}}
-      <a href="{% url 'cadcrianca:listar-cadastros' %}"><button class="btn btn-success">{{botao}}</button></a>
-    </form> -->
-  <!-- </div> -->
-</div>
 
 {% endblock %}

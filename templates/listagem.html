@@ -23,8 +23,9 @@
               <h6>AD508|cordeirinhos de Cristo: <a href="{{index}}" class="color-y">{{index}}</a></h6>
             </div>
         </div>
-            <div>
-                <img src="{ static 'images/cri.jpg' %}">
+            <div class="card card-body">
+                <img src="{{request.user.perfil.img.url}}" width="200" height="200">
+                <p>Seja bem-vindo(a) ao sitema: <strong>{{request.user}}</strong></p>
             </div>
             <div class="row">
                 <div class="col col-md-4 mt-4">

@@ -31,10 +31,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-blue" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user-circle" aria-hidden="{{request.user.perfil.img.url}}"></i>
+                            <i class="fa fa-user-circle" aria-hidden=""></i>
                             <span id="username">{{request.user}}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'cadcrianca:chamada' %}">
+                                <i classs="fa fa-sign-out" aria-hidden="true"></i>
+                                Aluno dados completos</a>
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'cadcrianca:atualizar-dados' %}">

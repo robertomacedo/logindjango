@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% load static %}
 {% block content %}
 <div class="container">
 
@@ -8,23 +8,74 @@
 
     <!-- <img src="{{media.url}}">{{campo.name}}</img> -->
     <p ><h2 class="text-center">Page in construction!!!</h2></p>
-    <p class="lead">Será apresentado dados do aluno pesquisado de forma individual</p>
+    <p class="lead">Será apresentado dados do aluno</p>
     <div class="row">
-    <table class="table table-special">
-        <tr>
-            <th>Nome</th>
-            <th>Presença</th>
-        </tr>
-    </table>
-    <tbody>
-        {% for ch in chs %}
-        <tr>
-            <td>{{ch.name}}</td>
-            <td></td>
-        </tr>
-        {% endfor %}
-    </tbody>
 
-</div>
+        {% for object in CadastroCrianca %}
+        {{object.image.url}}
+        <!-- <img class="img" src="{{cadastrocrianca.image.url}}" alt="image" width="150" height="150"> -->
+        {% endfor %}
+      
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Django File Upload</title>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        
+                * {
+                    font-family: "Roboto";
+                }
+        
+                body {
+                    background-color: #F5F5F5;
+                }
+        
+                form {
+                    background-color: #FFFFFF;
+                    padding: 25px;
+                }
+        
+                table {
+                    width: 100%; 
+                    text-align: center;
+                    margin-top: 25px;
+                    padding: 25px;
+                    background-color: #FFFFFF;
+                }
+        
+                table tr td {
+                    padding-top: 15px;            
+                }
+            </style>
+        </head>
+        <body>
+            <form action="{% url 'pages:listagem' %}" method="POST" enctype="multipart/form-data">
+                <input type="text" name="fileTitle" placeholder="Enter a title">
+                <input type="file" name="uploadedFile">
+                {% csrf_token %}
+                <input type="submit" value="Upload">
+            </form>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>File Path</th>
+                    <th>Upload Date & Time</th>
+                </tr>
+                {% for file in files %}
+                    <tr>
+                        <td>{{ file.name_completo }}</td>
+                        <td>{{ file.cpf }}</td>
+                        <td>{{ file.telefone }}</td>
+                        <td>{{ file.media.url }}</td>
+                        <td>{{ file.usuario }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </body>
+        </html>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import CriancaList, AlunoCreate, AlunoUpdate, AlunoDelete, ListaDatails, PerfilUpdate
+from .views import ChamdaList, CriancaList, AlunoCreate, AlunoUpdate, AlunoDelete, ListaDatails, PerfilUpdate
 
 app_name = "cadcrianca"
 
@@ -13,4 +13,6 @@ urlpatterns = [
     path("delete-form/<int:pk>", AlunoDelete.as_view(), name="delete-aluno"),
     path("lista-datails/", ListaDatails.as_view(), name="lista-datails"),
     path("atualizar-dados/", PerfilUpdate.as_view(), name="atualizar-dados"),
+
+    path("chamada/", ChamdaList.as_view(), name='chamada'),
 ]
