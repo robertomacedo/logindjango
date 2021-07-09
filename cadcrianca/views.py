@@ -123,6 +123,7 @@ def upload(request):
 
 # lista de chamada
 
-class ChamdaList(LoginRequiredMixin, ListView):
+
+class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados
     model = CadastroCrianca
     template_name = 'chamada.html'

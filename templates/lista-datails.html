@@ -53,10 +53,10 @@
         </head>
         <body>
             <form action="{% url 'pages:listagem' %}" method="POST" enctype="multipart/form-data">
-                <input type="text" name="fileTitle" placeholder="Enter a title">
+                <input type="text" name="fileTitle" placeholder="Título da imagem">
                 <input type="file" name="uploadedFile">
                 {% csrf_token %}
-                <input type="submit" value="Upload">
+                <input type="submit" value="Atualizar">
             </form>
             <table>
                 <tr>
@@ -65,12 +65,12 @@
                     <th>File Path</th>
                     <th>Upload Date & Time</th>
                 </tr>
-                {% for file in files %}
+                {% for file in document %}
                     <tr>
                         <td>{{ file.name_completo }}</td>
                         <td>{{ file.cpf }}</td>
                         <td>{{ file.telefone }}</td>
-                        <td>{{ file.media.url }}</td>
+                        <td>{{ file.email }}</td>
                         <td>{{ file.usuario }}</td>
                     </tr>
                 {% endfor %}
