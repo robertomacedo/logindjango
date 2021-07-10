@@ -3,36 +3,66 @@
 
 <!-- {% load crispy_forms_tags %} -->
 
-
 {% block content %}
 <h1>Meus dados pessoais</h1>
 
-<p class="lead">Atualização de dados do usuário</p>
+<p class="lead">Atualização de perfil</p>
 
 <hr>
-<div class="row">
-  <div class="col-md-3">
-    <div class="card card-body">
-      <a class="btn btn-warning" href="{% url 'pages:listagem' %}">Home</a></div>
+<table class="table">
+  <thead>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card card-body">
+        <a class="btn btn-warning" href="{% url 'pages:listagem' %}">Home</a>
+      </div>
       <h3 class="">Atualizar dados</h3>
-      <img class="img" src="{{request.user.perfil.img.url}}" alt="image" width="250" height="300">
-      <p>Seja bem-vindo(a) ao sitema: <strong>{{request.user}}</strong></p>
+      <div class="card card-body">
+        <img class="img" src="{{request.user.perfil.img.url}}" alt="image" width="220" height="310">
+        <p>Atualize seus dados: <strong>{{request.user}}</strong></p>
+      </div>
     </div>
   </div>
-</div>
+</thead>
+</table>
 
-<div class="col-md-4">
+  <table class="table">
+    <thead>
   <div class="card card-body">
-    <form method="POST" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input >
-        {{form.as_p}}
-        <input class="btn btn-primary" type="submit" name="Update Information">
-    </form>
-    {% if object.image %}
-    <img src="{{object.image.url}}">
-
-    {% endif %}
+    <div class="row">
+      <div class="col col-8">
+        <form method="POST" action="" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="col col-2">
+            <!-- <label>Nome</label> -->
+            <input class="text" placeholder="Nome" size="25">
+          </div>
+          <div class="col col-2 mt-2">
+            <!-- <label>Cpf</label> -->
+            <input class="text" placeholder="Cpf" size="15">
+          </div>
+          <div class="col col-2 mt-2">
+            <!-- <label>Telefone</label> -->
+            <input class="text" placeholder="Telefone" size="15">
+          </div>
+          <div class="col col-2 mt-2">
+            <!-- <label>Email</label> -->
+            <input class="text" placeholder="E-mail" size="25">
+          </div>
+          <div class="col col-2 mt-2">
+            <!-- <label>Usuário</label> -->
+            <input class="text" placeholder="Usuário">
+          </div>
+          <div class="mt-3">
+            <button  class="btn btn-primary" type="submit">Atualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </thead>
+  </table>
+  </div>
+    
   </div>
 
 {% endblock %}
