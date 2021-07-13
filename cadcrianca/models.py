@@ -7,6 +7,8 @@ def upload_image_crianca(instance, filename):
 
 
 class CadastroCrianca(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+
     name = models.CharField(max_length=100, verbose_name='Nome')
     phone = models.CharField(max_length=50, null=True, blank=True, verbose_name='Contato')
     address = models.CharField(max_length=100, verbose_name='Endereço')

@@ -5,7 +5,6 @@ from django.views.generic import TemplateView
 from .models import CadastroCrianca, Perfil
 from django.views.generic.list import ListView
 
-
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -95,33 +94,6 @@ class PerfilUpdate(TemplateView):
         context['botao'] = 'Atualizar'
 
         return context
-
-
-def perfilsettings(request):
-    user = request.user
-    form = PerfilForm(istance=user)
-    context = {
-        'form': form
-    }
-    return render(request, 'atualizar-dados.html', context)
-
-
-def upload(request):
-    if request.method == 'POST':
-        filetitle = request.POST['filetitle']
-        uploadfile = request.FILES['uploadfile']
-
-        document = models.Perfil(
-            title = filetitle,
-            uploadfile = uploadfile
-        )
-        document.save()
-
-        document = models.Perfil.objects.all()
-
-        return render(request, 'lista-datails.html', context={'files': document})
-
-# lista de chamada
 
 
 class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados

@@ -13,4 +13,4 @@ class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ['name_completo', 'cpf', 'telefone', 'email', 'usuario']
-        exclude = ['user']
+        # exclude = ['user']
