@@ -1,9 +1,10 @@
-from cadcrianca.forms import PerfilForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
 from .models import CadastroCrianca, Perfil
 from django.views.generic.list import ListView
+from cadcrianca.forms import PerfilForm
+
 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,10 +17,6 @@ def cadastroview(request):
 
 class CadastroView(TemplateView):
     template_name = "form.html"
-
-
-class ListaDatails(TemplateView):
-    template_name = "lista-datails.html"
 
 
 class ListagemView(LoginRequiredMixin, TemplateView):
@@ -81,21 +78,33 @@ class PerfilUpdate(TemplateView):
     template_name = 'atualizar-dados.html'
     models = Perfil
     fields = ['name_completo', 'cpf', 'telefone', 'email', 'usuario']
-    success_url = reverse_lazy('cadcrianca:listar-cadastros')
 
-    def get_object(self, queryset=None):
-        self.object = get_object_or_404(Perfil)
-        return self.object
+    def get_object(self, id):
+        self.object = get_object_or_404(Perfil, id=id)
+        return {'self.object': self.object}
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
 
-        context['titulo'] = 'Meus dados pessoais'
-        context['botao'] = 'Atualizar'
+    #     context['titulo'] = 'Meus dados pessoais'
+    #     context['botao'] = 'Atualizar'
 
-        return context
+    #     return context
 
 
 class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados
     model = CadastroCrianca
     template_name = 'chamada.html'
+
+
+def novo_perfil(request):
+    pass
+    # perfil = get_object_or_404(Perfil, id=pk)
+    if request.method == 'POST':
+        form = PerfilForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('novo_perfil.html')
+    else:
+        form = PerfilForm()
+    return render(request, 'novo_perfil.html', {'form': form})

@@ -143,11 +143,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# MEDI_URL = 'user/'
-# MEDIA_ROOT = BASE_DIR / 'static/images'
 
 #  django-allauth
 

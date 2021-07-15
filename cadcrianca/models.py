@@ -42,10 +42,10 @@ class CadastroCrianca(models.Model):
 
 
 class Perfil(models.Model):
-    name_completo = models.CharField(max_length=50, null=True)
-    cpf = models.CharField(max_length=14, null=True)
-    telefone = models.CharField(max_length=16, null=True)
-    email = models.EmailField(max_length=100, null=True)
+    name_completo = models.CharField(max_length=50, null=True, verbose_name='Nome')
+    cpf = models.CharField(max_length=14, null=True, verbose_name='Cpf')
+    telefone = models.CharField(max_length=16, null=True, verbose_name='Telefone')
+    email = models.EmailField(max_length=100, null=True, verbose_name='Email')
     img = models.ImageField(null=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)

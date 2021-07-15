@@ -12,5 +12,4 @@ class CadastroCriancaForm(forms.ModelForm):
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ['name_completo', 'cpf', 'telefone', 'email', 'usuario']
-        # exclude = ['user']
+        fields = ['name_completo', 'cpf', 'telefone', 'email']

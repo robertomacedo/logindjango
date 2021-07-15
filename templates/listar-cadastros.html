@@ -23,7 +23,7 @@
        {% for campo in object_list %}
         <tr>
             <!-- <td>{{forloop.counter}}</td> -->
-            <td><a href="{% url 'cadcrianca:lista-datails' %}">{{campo.name}}</a></td>
+            <td><a href="{% url 'cadcrianca:novo_perfil' %}">{{campo.name}}</a></td>
             <td>{{campo.phone}}</td>
             <!-- <td>{{campo.address}}</td> -->
             <td>{{campo.data_nascimento}}</td>
