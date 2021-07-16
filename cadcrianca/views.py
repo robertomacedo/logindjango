@@ -75,21 +75,13 @@ class AlunoDelete(DeleteView):
 
 
 class PerfilUpdate(TemplateView):
-    template_name = 'atualizar-dados.html'
     models = Perfil
-    fields = ['name_completo', 'cpf', 'telefone', 'email', 'usuario']
+    fields = ('name_completo', 'cpf', 'telefone', 'email', 'usuario')
+    template_name = 'atualizar-dados.html'
 
-    def get_object(self, id):
-        self.object = get_object_or_404(Perfil, id=id)
-        return {'self.object': self.object}
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-
-    #     context['titulo'] = 'Meus dados pessoais'
-    #     context['botao'] = 'Atualizar'
-
-    #     return context
+    def get_object(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados
@@ -98,13 +90,11 @@ class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de to
 
 
 def novo_perfil(request):
-    pass
-    # perfil = get_object_or_404(Perfil, id=pk)
     if request.method == 'POST':
         form = PerfilForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('novo_perfil.html')
+            # return redirect('home.html')
     else:
         form = PerfilForm()
-    return render(request, 'novo_perfil.html', {'form': form})
+    return render(request, 'atualizar-dados.html', {'form': form})

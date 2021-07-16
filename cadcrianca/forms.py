@@ -1,4 +1,3 @@
-from django.forms import ModelForm
 from .models import CadastroCrianca, Perfil
 from django import forms
 
@@ -12,4 +11,4 @@ class CadastroCriancaForm(forms.ModelForm):
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ['name_completo', 'cpf', 'telefone', 'email']
+        fields = ('name_completo', 'cpf', 'telefone', 'email', 'usuario')

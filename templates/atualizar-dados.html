@@ -2,7 +2,6 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-<!-- {% load crispy_forms_tags %} -->
 
 {% block content %}
 <h1>Meus dados pessoais</h1>
@@ -22,33 +21,6 @@
         <p>Atualize seus dados: <strong>{{request.user}}</strong></p>
       </div>
     </div>
-    <!-- <div class="col">
-      <form method="POST" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="col col-2">
-          <!-- <label>Nome</label> -->
-          <!-- <input class="text" placeholder="Nome" size="30">
-        </div>
-        <div class="col col-2 mt-2">
-          <!-- <label>Cpf</label> -->
-          <!-- <input class="text" placeholder="Cpf" size="30">
-        </div>
-        <div class="col col-2 mt-2">
-          <!-- <label>Telefone</label> -->
-          <!-- <input class="text" placeholder="Telefone" size="30">
-        </div>
-        <div class="col col-2 mt-2">
-          <!-- <label>Email</label> -->
-          <!-- <input class="text" placeholder="E-mail" size="30">
-        </div> -->
-        <!-- <div class="col col-2 mt-2">
-          <label>Usuário</label>
-          <input class="text" placeholder="Usuário">
-        </div>
-        <div class="mt-3">
-          <button  class="btn btn-primary" type="submit">Atualizar</button>
-        </div>
-      </form>   -->
       <div class="h-100 p-5 bg-light border rounded-3">
         <form method="POST">
             {% csrf_token %}

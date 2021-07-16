@@ -47,7 +47,7 @@ class Perfil(models.Model):
     telefone = models.CharField(max_length=16, null=True, verbose_name='Telefone')
     email = models.EmailField(max_length=100, null=True, verbose_name='Email')
     img = models.ImageField(null=True)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
