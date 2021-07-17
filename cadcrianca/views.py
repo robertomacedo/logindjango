@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
 from .models import CadastroCrianca, Perfil
 from django.views.generic.list import ListView
-from cadcrianca.forms import PerfilForm
+from cadcrianca.forms import EditarPerfilForm, PerfilForm
 
 
 from django.urls import reverse_lazy
@@ -74,14 +74,19 @@ class AlunoDelete(DeleteView):
         return context
 
 
-class PerfilUpdate(TemplateView):
-    models = Perfil
-    fields = ('name_completo', 'cpf', 'telefone', 'email', 'usuario')
-    template_name = 'atualizar-dados.html'
+def editar_p(request, p_id):
+    pass
+    perfil = get_object_or_404(Perfil, id=p_id)
+    if request.method == 'POST':
+        form = EditarPerfilForm(request.POST, id=p_id)
+        if form.is_valid():
+            cd = form.cleaned_data
+            perfil.name_completo = cd['name_completo']
+            form.save()
+    else:
+        form = EditarPerfilForm(id=p_id)
 
-    def get_object(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    return render(request, 'editar-perfil.html', {'form': form})
 
 
 class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados
@@ -94,7 +99,6 @@ def novo_perfil(request):
         form = PerfilForm(data=request.POST)
         if form.is_valid():
             form.save()
-            # return redirect('home.html')
     else:
         form = PerfilForm()
     return render(request, 'atualizar-dados.html', {'form': form})
