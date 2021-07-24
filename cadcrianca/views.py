@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .models import CadastroCrianca, Perfil
 from django.views.generic.list import ListView
 from cadcrianca.forms import EditarPerfilForm, PerfilForm
-
+from django.core.files.storage import FileSystemStorage
 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -41,7 +41,7 @@ class AlunoCreate(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        context['cranca_list'] = CadastroCrianca.objects.all()
         context['titulo'] = "Cadastrar novo aluno"
         context['botao'] = "Cadastrar"
         return context
@@ -74,20 +74,6 @@ class AlunoDelete(DeleteView):
         return context
 
 
-def editar_p(request, p_id):
-    pass
-    perfil = get_object_or_404(Perfil, id=p_id)
-    if request.method == 'POST':
-        form = EditarPerfilForm(request.POST, id=p_id)
-        if form.is_valid():
-            cd = form.cleaned_data
-            perfil.name_completo = cd['name_completo']
-            form.save()
-    else:
-        form = EditarPerfilForm(id=p_id)
-
-    return render(request, 'editar-perfil.html', {'form': form})
-
 
 class ChamdaList(LoginRequiredMixin, ListView):  # Carrega dados completos de todos alunos cadastrados
     model = CadastroCrianca
@@ -102,3 +88,11 @@ def novo_perfil(request):
     else:
         form = PerfilForm()
     return render(request, 'atualizar-dados.html', {'form': form})
+
+
+# def upload(request):  # Subir imagem para perfil do user
+#     if request.method == 'POST':
+#         uploaded_file = request.FILES['document']
+#         fs = FileSystemStorage()
+#         fs.save(uploaded_file.name, uploaded_file)
+#     return render(request, 'atualizar-dados.html')

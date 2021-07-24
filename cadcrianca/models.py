@@ -15,7 +15,7 @@ class CadastroCrianca(models.Model):
     data_nascimento = models.CharField(max_length=50, verbose_name='Data Nascimento')
     mae = models.CharField(max_length=100, verbose_name='Mãe')
     pai = models.CharField(max_length=100, null=True, blank=True, verbose_name='Pai')
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to="criancas", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -46,7 +46,7 @@ class Perfil(models.Model):
     cpf = models.CharField(max_length=14, null=True, verbose_name='Cpf')
     telefone = models.CharField(max_length=16, null=True, verbose_name='Telefone')
     email = models.EmailField(max_length=100, null=True, verbose_name='Email')
-    img = models.ImageField(null=True)
+    img = models.ImageField(upload_to='user', blank=True, null=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 

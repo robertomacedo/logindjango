@@ -17,7 +17,7 @@
       </div>
       <h3 class="">Atualizar dados</h3>
       <div class="card card-body">
-        <img class="img" src="{{request.user.perfil.img.url}}" alt="image" width="220" height="310">
+        <img class="img" src="{{perfil.img.url}}" alt="image" width="220" height="310">
         <p>Atualize seus dados: <strong>{{request.user}}</strong></p>
       </div>
     </div>
@@ -27,10 +27,20 @@
             {{form|crispy}}
             <br>
             <input class="btn btn-success" type="submit" value="ATUALIZAR">
-            
         </form>
     </div>
     </div>
   </div>
 
+  <div class='mt-3'>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="document" >
+      <button type="submit">Upload Imagem</button>
+    </form>
+    {% if img_obj %}
+      <h3>Succesfully uploaded : {{img.url}}</h3>
+      <img src="{{ img_obj.img.url}}" alt="connect" style="max-height:300px">
+    {% endif %}
+  </div>
 {% endblock %}

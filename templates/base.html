@@ -31,7 +31,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-blue" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user-circle" aria-hidden=""></i>
+                            <img src="{{request.user.perfil.url}}" class="fa fa-user-circle" aria-hidden="">
                             <span id="username">{{request.user}}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,10 +41,10 @@
                                 <i classs="fa fa-sign-out" aria-hidden="true"></i>
                                 Aluno dados completos</a>
 
-                                <div class="dropdown-divider"></div>
+                                <!-- <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'cadcrianca:novo_perfil' %}">
                                 <i classs="fa fa-sign-out" aria-hidden="true"></i>
-                                Meus dados</a>
+                                Meus dados</a> -->
 
                                 <a class="dropdown-item" href="{% url 'account_logout' %}">
                                 <i classs="fa fa-sign-out" aria-hidden="true"></i>
